@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: banking_finance-container
-        image: preddy1725/finance-me
+        image: preddy1725/banking_finance
         ports:
         - containerPort: 8081
 ---
