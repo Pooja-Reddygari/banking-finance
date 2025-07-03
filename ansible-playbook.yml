@@ -43,7 +43,7 @@
         enabled: yes
 
     - name: Run Docker image
-      shell:
+      shell:  |
          docker build -t preddy1725/banking_finance:${BUILD_NUMBER} .
          docker tag preddy1725/banking_finance:${BUILD_NUMBER} preddy1725/banking_finance:latest
 
