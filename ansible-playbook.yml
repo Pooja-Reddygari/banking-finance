@@ -52,8 +52,8 @@
 
     - name: Run Docker image
       shell:  |
-         docker build -t preddy1725/banking_finance:${{BUILD_NUMBER}} .
-         docker tag preddy1725/banking_finance:${{BUILD_NUMBER}} preddy1725/banking_finance:latest
+         docker build -t preddy1725/banking_finance:${{build_number}} .
+         docker tag preddy1725/banking_finance:${{build_number}} preddy1725/banking_finance:latest
 
 
 
