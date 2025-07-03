@@ -4,8 +4,8 @@
   become: true
 
   vars:
-    dockerhub_username: "{{ lookup('env', 'DOCKERHUB_CREDENTIALS_USR') }}"
-    dockerhub_password: "{{ lookup('env', 'DOCKERHUB_CREDENTIALS_PSW') }}"
+  #  dockerhub_username: "{{ lookup('env', 'DOCKERHUB_CREDENTIALS_USR') }}"
+ #   dockerhub_password: "{{ lookup('env', 'DOCKERHUB_CREDENTIALS_PSW') }}"
     build_number: "{{ lookup('env', 'BUILD_NUMBER') }}"
 #    image_name: "preddy1725/banking_finance"
 
