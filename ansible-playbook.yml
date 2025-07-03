@@ -3,12 +3,6 @@
   hosts: slave_node
   become: true
 
-  vars:
-  #  dockerhub_username: "{{ lookup('env', 'DOCKERHUB_CREDENTIALS_USR') }}"
- #   dockerhub_password: "{{ lookup('env', 'DOCKERHUB_CREDENTIALS_PSW') }}"
-    build_number: "{{ lookup('env', 'BUILD_NUMBER') }}"
-#    image_name: "preddy1725/banking_finance"
-
   tasks:
     - name: Install prerequisites
       apt:
@@ -50,12 +44,4 @@
 
     
 
-    - name: Run Docker image
-      shell:  |
-         docker build -t preddy1725/banking_finance:${{build_number}} .
-         docker tag preddy1725/banking_finance:${{build_number}} preddy1725/banking_finance:latest
-
-
-
-    - name: Deploy Docker Container
-      command: docker run -itd -p 8084:8081 preddy1725/banking_finance:latest
+   
