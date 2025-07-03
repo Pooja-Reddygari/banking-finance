@@ -42,5 +42,10 @@
         state: started
         enabled: yes
 
+    -name: Run Docker image
+      shell:
+         docker build -t preddy1725/banking_finance:${BUILD_NUMBER} .
+         docker tag preddy1725/banking_finance:${BUILD_NUMBER} preddy1725/banking_finance:latest
+
     - name: Deploy Docker Container
       command: docker run -itd -p 8084:8081 preddy1725/banking_finance
