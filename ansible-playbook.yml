@@ -1,16 +1,23 @@
-- name : Configure Docker on EC2 Instances
-  hosts : slave_node
+---
+- name: Configure Docker on EC2 Instances
+  hosts: slave_node
   become: true
 
-  tasks : 
-  - name: updating apt
-    command : sudo apt update -y
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
 
-  - name : Install Docker
-    command : sudo apt install -y docker.io
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
 
-  - name : Start Docker Service
-    command : sudo systemctl start docker
+    - name: Start and enable Docker service
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
 
-  - name: Deploy Docker Container
-    command: docker run -itd -p 8084:8081 preddy1725/banking_finance
+    - name: Deploy Docker Container
+      command: docker run -itd -p 8084:8081 preddy1725/banking_finance
